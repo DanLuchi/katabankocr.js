@@ -12,4 +12,15 @@ describe("Bank OCR", function() {
     });
 
   });
+
+
+  describe("A digit", function() {
+    it("parses a 0", function() {
+      var raw_zero = " _ " +
+                     "| |" +
+                     "|_|";
+      var digit = new Digit();
+      expect(digit.number(raw_zero)).toEqual(0);
+    });
+  });
 });
