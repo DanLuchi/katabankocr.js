@@ -8,9 +8,18 @@ describe("Bank OCR", function() {
       "  ||_  _|  | _||_|  ||_| _|\n" +
       "                           ";
       var entry = new Entry();
-      expect(entry.number(raw_entry)).toEqual(123456789);
+      expect(entry.number(raw_entry)).toEqual("123456789");
     });
 
+    it("should parse 012345678", function() {
+      var raw_entry =
+      " _     _  _     _  _  _  _ \n" +
+      "| |  | _| _||_||_ |_   ||_|\n" +
+      "|_|  ||_  _|  | _||_|  ||_|\n" +
+      "                           ";
+      var entry = new Entry();
+      expect(entry.number(raw_entry)).toEqual("012345678");
+    });
   });
 
 

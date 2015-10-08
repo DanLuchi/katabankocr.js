@@ -1,6 +1,24 @@
 function Entry() {
   this.number = function(raw) {
-    return 123456789;
+    var lines = raw.split("\n")
+    var digits = []
+    digits[0] = lines[0].slice(0,3)   + lines[1].slice(0,3)   + lines[2].slice(0,3)
+    digits[1] = lines[0].slice(3,6)   + lines[1].slice(3,6)   + lines[2].slice(3,6)
+    digits[2] = lines[0].slice(6,9)   + lines[1].slice(6,9)   + lines[2].slice(6,9)
+    digits[3] = lines[0].slice(9,12)  + lines[1].slice(9,12)  + lines[2].slice(9,12)
+    digits[4] = lines[0].slice(12,15) + lines[1].slice(12,15) + lines[2].slice(12,15)
+    digits[5] = lines[0].slice(15,18) + lines[1].slice(15,18) + lines[2].slice(15,18)
+    digits[6] = lines[0].slice(18,21) + lines[1].slice(18,21) + lines[2].slice(18,21)
+    digits[7] = lines[0].slice(21,24) + lines[1].slice(21,24) + lines[2].slice(21,24)
+    digits[8] = lines[0].slice(24,27) + lines[1].slice(24,27) + lines[2].slice(24,27)
+
+    var number = "";
+    digits.forEach(function(digit_string) {
+      var digit = new Digit();
+      number = number + digit.number(digit_string);
+    });
+
+    return number
   }
 }
 
