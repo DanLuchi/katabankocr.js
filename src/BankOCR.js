@@ -1,6 +1,8 @@
-function File() {
-  this.numbers = function(raw) {
-    var lines = raw.split("\n")
+function File(raw) {
+  this.raw = raw;
+
+  this.numbers = function() {
+    var lines = this.raw.split("\n")
 
     var i, j, raw_entries = [], chunk = 4;
     for (i=0, j=lines.length; i<j; i+=chunk) {

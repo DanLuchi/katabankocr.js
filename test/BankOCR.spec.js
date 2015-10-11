@@ -11,8 +11,8 @@ describe("Bank OCR", function() {
       "| |  | _| _||_||_ |_   ||_|\n" +
       "|_|  ||_  _|  | _||_|  ||_|\n" +
       "                           ";
-      var file = new File();
-      expect(file.numbers(raw_entry)).toEqual(["123456789", "012345678"]);
+      var file = new File(raw_entry);
+      expect(file.numbers()).toEqual(["123456789", "012345678"]);
     });
 
     it("should parse 012345678", function() {
