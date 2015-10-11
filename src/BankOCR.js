@@ -9,17 +9,19 @@ function File() {
 
     var entries = [];
     raw_entries.forEach(function(raw_entry) {
-      entry = new Entry();
-      entries.push(entry.number(raw_entry));
+      entry = new Entry(raw_entry);
+      entries.push(entry.number());
     });
 
     return entries;
   }
 }
 
-function Entry() {
-  this.number = function(raw) {
-    var lines = raw.split("\n")
+function Entry(raw) {
+  this.raw = raw;
+
+  this.number = function() {
+    var lines = this.raw.split("\n")
 
     var digits = [1,2,3,4,5,6,7,8,9]
     digits.forEach(function(foo, index) {
