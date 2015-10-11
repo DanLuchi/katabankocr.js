@@ -1,3 +1,22 @@
+function File() {
+  this.numbers = function(raw) {
+    var lines = raw.split("\n")
+
+    var i, j, raw_entries = [], chunk = 4;
+    for (i=0, j=lines.length; i<j; i+=chunk) {
+        raw_entries.push(lines.slice(i,i+chunk).join("\n"));
+    }
+
+    var entries = [];
+    raw_entries.forEach(function(raw_entry) {
+      entry = new Entry();
+      entries.push(entry.number(raw_entry));
+    });
+
+    return entries;
+  }
+}
+
 function Entry() {
   this.number = function(raw) {
     var lines = raw.split("\n")

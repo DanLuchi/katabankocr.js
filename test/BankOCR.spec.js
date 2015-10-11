@@ -1,5 +1,31 @@
 describe("Bank OCR", function() {
 
+  describe("A file", function() {
+    it("should parse multiple lines", function() {
+      var raw_entry =
+      "    _  _     _  _  _  _  _ \n" +
+      "  | _| _||_||_ |_   ||_||_|\n" +
+      "  ||_  _|  | _||_|  ||_| _|\n" +
+      "                           \n" +
+      " _     _  _     _  _  _  _ \n" +
+      "| |  | _| _||_||_ |_   ||_|\n" +
+      "|_|  ||_  _|  | _||_|  ||_|\n" +
+      "                           ";
+      var file = new File();
+      expect(file.numbers(raw_entry)).toEqual(["123456789", "012345678"]);
+    });
+
+    it("should parse 012345678", function() {
+      var raw_entry =
+      " _     _  _     _  _  _  _ \n" +
+      "| |  | _| _||_||_ |_   ||_|\n" +
+      "|_|  ||_  _|  | _||_|  ||_|\n" +
+      "                           ";
+      var entry = new Entry();
+      expect(entry.number(raw_entry)).toEqual("012345678");
+    });
+  });
+
   describe("An entry", function() {
     it("should parse 123456789", function() {
       var raw_entry =
