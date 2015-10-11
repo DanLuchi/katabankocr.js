@@ -39,7 +39,16 @@ function Entry(raw, number) {
       number = number + digit.number();
     });
 
-    return new Entry(this.raw, number)
+    return new Entry(this.raw, number);
+  }
+
+  this.isValid = function() {
+    var d = []
+    this.number.split('').forEach(function(digit) {
+      d.push(parseInt(digit, 10));
+    });
+
+    return ((d[8]+2*d[7]+3*d[6]+4*d[5]+5*d[4]+6*d[3]+7*d[2]+8*d[1]+9*d[0]) % 11 === 0);
   }
 }
 

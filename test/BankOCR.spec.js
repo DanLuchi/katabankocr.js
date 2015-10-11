@@ -46,6 +46,39 @@ describe("Bank OCR", function() {
       var entry = new Entry(raw_entry);
       expect(entry.parse().number).toEqual("012345678");
     });
+
+    describe("isValid", function() {
+      it("should be true for 000000000", function() {
+        var raw_entry =
+        " _  _  _  _  _  _  _  _  _ \n" +
+        "| || || || || || || || || |\n" +
+        "|_||_||_||_||_||_||_||_||_|\n" +
+        "                           ";
+        var entry = new Entry(raw_entry);
+        expect(entry.parse().isValid()).toEqual(true);
+      });
+
+      it("should be false for 123456788", function() {
+        var raw_entry =
+        "    _  _     _  _  _  _  _ \n" +
+        "  | _| _||_||_ |_   ||_||_|\n" +
+        "  ||_  _|  | _||_|  ||_||_|\n" +
+        "                           ";
+        var entry = new Entry(raw_entry);
+        expect(entry.parse().isValid()).toEqual(false);
+      });
+
+      it("should be true for 345882865", function() {
+        var raw_entry =
+        " _     _  _  _  _  _  _  _ \n" +
+        " _||_||_ |_||_| _||_||_ |_ \n" +
+        " _|  | _||_||_||_ |_||_| _|\n" +
+        "                           ";
+        var entry = new Entry(raw_entry);
+        expect(entry.parse().number).toEqual("345882865");
+        expect(entry.parse().isValid()).toEqual(true);
+      });
+    });
   });
 
 
