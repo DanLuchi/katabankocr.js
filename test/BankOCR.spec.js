@@ -22,7 +22,7 @@ describe("Bank OCR", function() {
       "|_|  ||_  _|  | _||_|  ||_|\n" +
       "                           ";
       var entry = new Entry(raw_entry);
-      expect(entry.number()).toEqual("012345678");
+      expect(entry.parse().number).toEqual("012345678");
     });
   });
 
@@ -34,7 +34,7 @@ describe("Bank OCR", function() {
       "  ||_  _|  | _||_|  ||_| _|\n" +
       "                           ";
       var entry = new Entry(raw_entry);
-      expect(entry.number()).toEqual("123456789");
+      expect(entry.parse().number).toEqual("123456789");
     });
 
     it("should parse 012345678", function() {
@@ -44,7 +44,7 @@ describe("Bank OCR", function() {
       "|_|  ||_  _|  | _||_|  ||_|\n" +
       "                           ";
       var entry = new Entry(raw_entry);
-      expect(entry.number()).toEqual("012345678");
+      expect(entry.parse().number).toEqual("012345678");
     });
   });
 

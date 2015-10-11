@@ -12,17 +12,18 @@ function File(raw) {
     var entries = [];
     raw_entries.forEach(function(raw_entry) {
       entry = new Entry(raw_entry);
-      entries.push(entry.number());
+      entries.push(entry.parse().number);
     });
 
     return entries;
   }
 }
 
-function Entry(raw) {
+function Entry(raw, number) {
   this.raw = raw;
+  this.number = number;
 
-  this.number = function() {
+  this.parse = function() {
     var lines = this.raw.split("\n")
 
     var digits = [1,2,3,4,5,6,7,8,9]
@@ -38,7 +39,7 @@ function Entry(raw) {
       number = number + digit.number();
     });
 
-    return number
+    return new Entry(this.raw, number)
   }
 }
 
