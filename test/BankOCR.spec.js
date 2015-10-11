@@ -54,71 +54,71 @@ describe("Bank OCR", function() {
       var raw_zero = " _ " +
                      "| |" +
                      "|_|";
-      var digit = new Digit();
-      expect(digit.number(raw_zero)).toEqual(0);
+      var digit = new Digit(raw_zero);
+      expect(digit.number()).toEqual(0);
     });
     it("parses a 1", function() {
       var raw_one = "   " +
                     "  |" +
                     "  |";
-      var digit = new Digit();
-      expect(digit.number(raw_one)).toEqual(1);
+      var digit = new Digit(raw_one);
+      expect(digit.number()).toEqual(1);
     });
     it("parses a 2", function() {
       var raw_two = " _ " +
                     " _|" +
                     "|_ ";
-      var digit = new Digit();
-      expect(digit.number(raw_two)).toEqual(2);
+      var digit = new Digit(raw_two);
+      expect(digit.number()).toEqual(2);
     });
     it("parses a 3", function() {
       var raw_three = " _ " +
                       " _|" +
                       " _|";
-      var digit = new Digit();
-      expect(digit.number(raw_three)).toEqual(3);
+      var digit = new Digit(raw_three);
+      expect(digit.number()).toEqual(3);
     });
     it("parses a 4", function() {
       var raw_four = "   " +
                      "|_|" +
                      "  |";
-      var digit = new Digit();
-      expect(digit.number(raw_four)).toEqual(4);
+      var digit = new Digit(raw_four);
+      expect(digit.number()).toEqual(4);
     });
     it("parses a 5", function() {
       var raw_five = " _ " +
                      "|_ " +
                      " _|";
-      var digit = new Digit();
-      expect(digit.number(raw_five)).toEqual(5);
+      var digit = new Digit(raw_five);
+      expect(digit.number()).toEqual(5);
     });
     it("parses a 6", function() {
       var raw_six = " _ " +
                     "|_ " +
                     "|_|";
-      var digit = new Digit();
-      expect(digit.number(raw_six)).toEqual(6);
+      var digit = new Digit(raw_six);
+      expect(digit.number()).toEqual(6);
     });
     it("parses a 7", function() {
       var raw_seven = " _ " +
                       "  |" +
                       "  |";
-      var digit = new Digit();
-      expect(digit.number(raw_seven)).toEqual(7);
+      var digit = new Digit(raw_seven);
+      expect(digit.number()).toEqual(7);
     });
     it("parses a 8", function() {
       var raw_eight = " _ " +
                       "|_|" +
                       "|_|";
-      var digit = new Digit();
-      expect(digit.number(raw_eight)).toEqual(8);
+      var digit = new Digit(raw_eight);
+      expect(digit.number()).toEqual(8);
     });
     it("parses a 9", function() {
       var raw_nine = " _ " +
                      "|_|" +
                      " _|";
-      var digit = new Digit();
-      expect(digit.number(raw_nine)).toEqual(9);
+      var digit = new Digit(raw_nine);
+      expect(digit.number()).toEqual(9);
     });
   });
 });

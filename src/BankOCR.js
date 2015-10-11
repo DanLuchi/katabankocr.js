@@ -30,16 +30,18 @@ function Entry() {
 
     var number = "";
     digits.forEach(function(digit_string) {
-      var digit = new Digit();
-      number = number + digit.number(digit_string);
+      var digit = new Digit(digit_string);
+      number = number + digit.number();
     });
 
     return number
   }
 }
 
-function Digit() {
-  var DIGITS = []
+function Digit(raw) {
+  this.raw = raw;
+
+  var DIGITS = [];
   DIGITS[0] = " _ " +
               "| |" +
               "|_|";
@@ -71,7 +73,8 @@ function Digit() {
               "|_|" +
               " _|";
 
-  this.number = function(raw) {
+  this.number = function() {
+    var raw = this.raw;
     if(raw === DIGITS[0]) {
       return 0;
     } else if (raw === DIGITS[1]) {
